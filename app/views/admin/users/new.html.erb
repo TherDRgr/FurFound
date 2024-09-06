@@ -1,0 +1,26 @@
+<h1>New User</h1>
+
+<%= form_for [:admin, @user] do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Create User", class: 'btn btn-success' %>
+  <%= link_to 'Cancel', admin_users_path, class: 'btn btn-danger' %>
+  </div>
+<% end %>

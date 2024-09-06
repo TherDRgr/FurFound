@@ -1,0 +1,23 @@
+<div class ="container">
+<h1>Stocks XChange</h1>
+
+<% if current_user %>
+    <p> Hello <%= current_user.role %>,</p>
+
+    <% if current_user.admin? %>
+    
+    <%= render 'pages/admin' %>
+
+    <% end %>
+
+    <p> You have successfully authenticated your account. </p>
+
+<% else %>
+
+    <p> you are not signed in. </p>
+    <%= link_to "Sign up", new_user_registration_path %> | 
+    <%= link_to "Login", new_user_session_path %>
+
+<% end %>
+</div>
+

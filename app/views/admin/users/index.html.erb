@@ -1,0 +1,40 @@
+<h1>All Users</h1> 
+<%= link_to 'Add a New User', new_admin_user_path, class: 'btn btn-primary' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+        <td><%= user.role %></td>
+        <td>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button type="button" class="btn btn-warning">
+          
+          <%= link_to 'Edit', edit_admin_user_path(user) %>
+          </button>
+          
+          <%= button_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+
+          <% unless user.approved? %>
+            <%=  button_to 'Approve', approve_admin_user_path(user), method: :patch, class: 'btn btn-success' %>
+
+        </div>
+          
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

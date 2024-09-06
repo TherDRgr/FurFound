@@ -1,0 +1,9 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Home", root_path, class:'navbar-brand' %>
+    </a>
+    <% if current_user %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo: "false"} %>
+    <% end %>
+  </div>
+</nav>
