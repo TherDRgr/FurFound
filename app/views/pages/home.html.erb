@@ -1,5 +1,6 @@
 <div class ="container">
-<h1>Stocks XChange</h1>
+<h1>FurFound</h1>
+<p>A platform to help reunite lost pets with their owners.</p>
 
 <% if current_user %>
     <p> Hello <%= current_user.role %>,</p>
@@ -9,8 +10,6 @@
     <%= render 'pages/admin' %>
 
     <% end %>
-
-    <p> You have successfully authenticated your account. </p>
 
 <% else %>
 

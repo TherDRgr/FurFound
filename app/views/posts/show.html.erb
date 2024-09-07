@@ -2,6 +2,49 @@
 
 <%= render @post %>
 
+<h1><%= @post.name %></h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @post.color %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @post.species %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @post.breed %>
+</p>
+
+<p>
+  <strong>Last Seen Location:</strong>
+  <%= @post.last_seen_location %>
+</p>
+
+<p>
+  <strong>Date Reported:</strong>
+  <%= @post.date_reported %>
+</p>
+
+<% if @post.qr_code.present? %>
+  <p>
+    <strong>QR Code:</strong>
+    <%= image_tag @post.qr_code, alt: "QR Code" %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>

@@ -7,6 +7,8 @@ class User < ApplicationRecord
   enum role: {user: 0 , admin: 1}
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :posts, dependent: :destroy
+
   def set_default_approved
     self.approved ||= false
   end
