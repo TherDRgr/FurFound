@@ -2,13 +2,26 @@
 
 <h1>Posts</h1>
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
-</div>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Color</th>
+      <th>Species</th>
+      <th>QR Code</th>
+      <th>Breed</th>
+      <th>Last Seen Location</th>
+      <th>Date Reported</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <div id="posts">
+      <% @posts.each do |post| %>
+        <%= render partial: 'post', locals: { post: post } %>
+      <% end %>
+    </div>
+  </tbody>
+</table>
 
 <%= link_to "New post", new_post_path %>
