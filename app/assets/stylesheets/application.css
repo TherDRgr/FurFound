@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* app/assets/stylesheets/custom.css */
+
+/* Apply Poppins to main headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Apply Roboto to the rest of the content */
+  body, dl, dt, dd, p, span {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Optional: Additional styling for a friendly look */
+  h1 {
+    font-weight: 700;
+  }
+  
