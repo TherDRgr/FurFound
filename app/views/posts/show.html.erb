@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <div class="col-md-6 text-center">
       <% if @post.photo.present? %>
-        <%= image_tag @post.photo.url, class: 'img-thumbnail img-fluid', style: 'max-width: 50%; height: auto;' %>
+        <%= image_tag @post.photo.full.url, class: 'img-thumbnail img-fluid', style: 'max-width: 100%; height: auto;' %>
       <% else %>
         <p>No Available Photo</p>
       <% end %>

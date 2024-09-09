@@ -1,14 +1,15 @@
 <turbo-frame id="<%= dom_id(post) %>">
   <tr>
   <td>
-    <% if post.photo.present? %>
-      <%= link_to post_path(post), class: 'post-name-link' do %>
-        <%= image_tag post.photo.url, class: 'img-thumbnail', style: 'width: 150px;' %>
-      <% end %>
-    <% else %>
-      <p>No Available Photo</p>
+  <% if post.photo.present? %>
+    <%= link_to post_path(post), class: 'post-name-link' do %>
+      <%= image_tag post.photo.thumb.url, class: 'img-thumbnail', style: 'width: 150px;' %>
     <% end %>
-      </td>
+  <% else %>
+    <p>No Available Photo</p>
+  <% end %>
+</td>
+
     <td><%= link_to post.name, post_path(post), class: 'post-name-link' %></td>
     <td><%= post.color %></td>
     <td><%= post.species %></td>

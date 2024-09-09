@@ -41,5 +41,55 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: underline; /* Add underline on hover */
     color: black; /* Ensure color stays black on hover */
   }
+
+  /* Image Zoom Effect */
+
+  .img-thumbnail {
+    transition: transform 0.2s; /* Animation */
+  }
   
+  .img-thumbnail:hover {
+    transform: scale(1.2); /* Zoom in effect */
+  }
   
+/* Ensure the table takes full width but maintains fixed column widths */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Fix column widths */
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 8px;
+  vertical-align: middle;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.table td img {
+  max-width: 150px; /* Ensure images do not exceed this width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Optional: Specific column widths */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  width: 200px; /* Fixed width for Photo column */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 200px; /* Fixed width for Name column */
+}
+
+/* Responsive table */
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+/* Center the heading text */
+.text-center {
+  text-align: center;
+}
