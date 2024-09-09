@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'show/show'
   namespace :admin do
     resources :users, only: [:index, :new, :create, :edit, :update, :destroy] do
       member do
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts
   root 'pages#home'
+
+  get 'show/:id', to: 'show#show', as: 'show_post'
 
   # get 'about', to 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
