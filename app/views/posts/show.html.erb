@@ -1,67 +1,60 @@
-<div class="container">
-  <% if notice %>
-    <div class="alert alert-success" role="alert">
-      <%= notice %>
+<div class="container my-5">
+
+  <h1 class="mb-4 text-center">Have you seen <%= @post.name %>?</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <% if @post.photo.present? %>
+        <%= image_tag @post.photo.full.url, class: 'img-thumbnail img-fluid', style: 'max-width: 100%; height: auto;' %>
+      <% else %>
+        <p>No Available Photo</p>
+      <% end %>
     </div>
-  <% end %>
-
-  <h1 class="mb-3 d-flex justify-content-center"> Have you seen <%= @post.name %>? </h1>
-
-  <div class="mb-3">
-    <% if @post.photo.present? %>
-        <%= image_tag @post.photo.url, class: 'img-thumbnail', style: 'width: 300px;' %>
-    <% else %>
-        <p>No Photo</p>
-    <% end %>
-  </div>
-
-  <div class="mb-3">
-    <strong>Responds to:</strong>
-    <span><%= @post.name %></span>
-  </div>
-
-  <div class="mb-3">
-    <strong>Color:</strong>
-    <span><%= @post.color %></span>
-  </div>
-
-  <div class="mb-3">
-    <strong>Species:</strong>
-    <span><%= @post.species %></span>
-  </div>
-
-  <div class="mb-3">
-    <strong>Breed:</strong>
-    <span><%= @post.breed %></span>
-  </div>
-
-  <div class="mb-3">
-    <strong>Last Seen Location:</strong>
-    <span><%= @post.last_seen_location %></span>
-  </div>
-
-  <div class="mb-3">
-    <strong>Date Missing:</strong>
-    <span><%= @post.date_reported %></span>
   </div>
 
   <% if @post.qr_code.present? %>
-    <div class="mb-3">
-      <strong>QR Code:</strong>
-      <%= image_tag @post.qr_code, alt: "QR Code", class: "img-fluid" %>
+    <div class="row justify-content-center my-4">
+      <div class="col-md-4 text-center">
+        <strong class="d-block mb-2">Scan Me!</strong>
+        <%= image_tag @post.qr_code, alt: "QR Code", class: "img-fluid" %>
+      </div>
     </div>
   <% end %>
 
-  <div class="mb-3">
-    <strong>Reported by:</strong>
-    <span><%= @post.user.name %></span>
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+      <dl class="row">
+        <dt class="col-sm-4"><strong>Responds to:</strong></dt>
+        <dd class="col-sm-8"><%= @post.name %></dd>
+
+        <dt class="col-sm-4"><strong>Color:</strong></dt>
+        <dd class="col-sm-8"><%= @post.color %></dd>
+
+        <dt class="col-sm-4"><strong>Species:</strong></dt>
+        <dd class="col-sm-8"><%= @post.species %></dd>
+
+        <dt class="col-sm-4"><strong>Breed:</strong></dt>
+        <dd class="col-sm-8"><%= @post.breed %></dd>
+
+        <dt class="col-sm-4"><strong>Last Seen Location:</strong></dt>
+        <dd class="col-sm-8"><%= @post.last_seen_location %></dd>
+
+        <dt class="col-sm-4"><strong>Date Missing:</strong></dt>
+        <dd class="col-sm-8"><%= @post.date_reported %></dd>
+
+        <dt class="col-sm-4"><strong>Reported by:</strong></dt>
+        <dd class="col-sm-8"><%= @post.user.name %></dd>
+      </dl>
+    </div>
   </div>
 
-  <div class="mt-4">
-    <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning btn-sm' %>
-    <%= link_to 'Back', posts_path, class: 'btn btn-secondary btn-sm' %>
-    <% if @post.user == current_user %>
-      <%= link_to 'Delete Post', @post, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } %>
-    <% end %>
+  <div class="row justify-content-center">
+    <div class="col-auto d-flex">
+      <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning btn-sm me-2' %>
+      <%= link_to 'Back', posts_path, class: 'btn btn-secondary btn-sm me-2' %>
+      <% if @post.user == current_user %>
+        <%= button_to 'Delete', @post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,37 +1,38 @@
-<% @posts.each do |post| %>
-    <turbo-frame id="<%= dom_id(post) %>">
-      <tr>
-        <td>
-        <% if post.photo.present? %>
-          <%= image_tag post.photo.url, class: 'img-thumbnail', style: 'width: 150px;' %>
-        <% else %>
-          <p>No Photo</p>
-        <% end %>
-      </td>
-        <td><%= post.name %></td>
-        <td><%= post.color %></td>
-        <td><%= post.species %></td>
-        <td><%= post.breed %></td>
-        <td><%= post.last_seen_location %></td>
-        <td><%= post.date_reported %></td>
-        <td>
-          <div>
-            <strong><%= post.user.name %></strong><br/>
-            <small><%= post.user.email %></small>
-          </div>
-        </td>
-        <td>
-          <!-- Button Group for actions -->
-            <div class="d-flex justify-content-center">
-          <div class="btn-group" role="group" aria-label="Post Actions"> </div>
-            <%= link_to 'Show', post, class: 'btn btn-primary btn-sm' %>
-            <% if post.user == current_user || current_user.admin? %>
-              <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-sm' %>
-              <%= button_to 'Delete', post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
-            <% end %>
-          </div>
-        </td>
-      </tr>
-    </turbo-frame>
+<turbo-frame id="<%= dom_id(post) %>">
+  <tr>
+  <td>
+  <% if post.photo.present? %>
+    <%= link_to post_path(post), class: 'post-name-link' do %>
+      <%= image_tag post.photo.thumb.url, class: 'img-thumbnail', style: 'width: 150px;' %>
+    <% end %>
+  <% else %>
+    <p>No Available Photo</p>
   <% end %>
-  
+</td>
+
+    <td><%= link_to post.name, post_path(post), class: 'post-name-link' %></td>
+    <td><%= post.color %></td>
+    <td><%= post.species %></td>
+    <td><%= post.breed %></td>
+    <td><%= post.last_seen_location %></td>
+    <td><%= post.date_reported %></td>
+    <td>
+      <div>
+        <strong><%= post.user.name %></strong><br/>
+        <small><%= post.user.email %></small>
+      </div>
+    </td>
+    <td>
+      <!-- Button Group for actions -->
+      <div class="d-flex">
+        <div class="btn-group" role="group" aria-label="Post Actions">
+          <%= link_to 'Show', post, class: 'btn btn-primary btn-sm' %>
+          <% if post.user == current_user || current_user.admin? %>
+            <%= link_to 'Edit', edit_post_path(post), class: 'btn btn-warning btn-sm' %>
+            <%= button_to 'Delete', post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
+      </div>
+    </td>
+  </tr>
+</turbo-frame>

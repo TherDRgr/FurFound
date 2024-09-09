@@ -46,14 +46,14 @@
           <%= form.date_field :date_reported, class: "form-control" %>
         </div>
 
-        <div class="form-group text-center">
-          <%= form.submit "Submit Post", class: "btn btn-success btn-lg" %>
-        </div>
-
         <div class="field">
         <%= form.label :photo %>
-        <%= form.file_field :photo %>
+        <%= form.file_field :photo, class: "form-control" %>
       </div>
+
+        <div class="form-group text-center">
+          <%= form.submit "Submit Post", class: "btn btn-success btn-lg m-3" %>
+        </div>
 
       <% end %>
     </div>

@@ -1,7 +1,8 @@
 class Post < ApplicationRecord
     belongs_to :user
-    validates :name, :color, :species, :breed, :last_seen_location, presence: true, uniqueness: true ;
-    :date_reported
+    validates :name, uniqueness: true
+    validates :color, :species, :breed, :last_seen_location, :date_reported, presence: true
+    
 
     mount_uploader :photo, PhotoUploader
 
