@@ -1,47 +1,61 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-      <ul>
-        <% post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+<div class="d-flex justify-content-center">
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <h3 class="card-title text-center">FurFound Form</h3>
+      <%= form_with(model: post, local: true, class: "form-horizontal") do |form| %>
+        <% if post.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h4><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+            <ul>
+              <% post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+
+        <div class="form-group">
+          <%= form.label :name, class: "control-label" %>
+          <%= form.text_field :name, class: "form-control", placeholder: "Enter pet's name" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :color, class: "control-label" %>
+          <%= form.text_field :color, class: "form-control", placeholder: "Enter pet's color" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :species, class: "control-label" %>
+          <%= form.text_field :species, class: "form-control", placeholder: "Enter pet's species" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :breed, class: "control-label" %>
+          <%= form.text_field :breed, class: "form-control", placeholder: "Enter pet's breed" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :last_seen_location, class: "control-label" %>
+          <%= form.text_field :last_seen_location, class: "form-control", placeholder: "Enter last seen location" %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :date_missing, class: "control-label" %>
+          <%= form.date_field :date_reported, class: "form-control" %>
+        </div>
+
+        <div class="form-group text-center">
+          <%= form.submit "Submit Post", class: "btn btn-success btn-lg" %>
+        </div>
+
+        <div class="field">
+        <%= form.label :photo %>
+        <%= form.file_field :photo %>
+      </div>
+
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color %>
-  </div>
-
-  <div class="field">
-    <%= form.label :species %>
-    <%= form.text_field :species %>
-  </div>
-
-  <div class="field">
-    <%= form.label :breed %>
-    <%= form.text_field :breed %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_seen_location %>
-    <%= form.text_field :last_seen_location %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_reported %>
-    <%= form.date_field :date_reported %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

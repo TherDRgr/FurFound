@@ -1,9 +1,11 @@
-<h1>New post</h1>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<h1 class="d-flex justify-content-center">New Post</h1>
 
 <%= render "form", post: @post %>
 
 <br>
 
-<div>
-  <%= link_to "Back to posts", posts_path %>
+<div class="d-flex justify-content-center">
+  <%= link_to "Back to posts" , posts_path, class: 'btn btn-secondary' %>
 </div>

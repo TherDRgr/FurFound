@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
     belongs_to :user
-    validates :name, :color, :species, :breed, :last_seen_location, :date_reported, presence: true
+    validates :name, :color, :species, :breed, :last_seen_location, presence: true, uniqueness: true ;
+    :date_reported
+
+    mount_uploader :photo, PhotoUploader
 
     def qr_code_url
         # Customize the data you want to embed in the QR code

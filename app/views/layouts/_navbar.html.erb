@@ -1,9 +1,11 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <%= link_to "Home", root_path, class:'navbar-brand' %>
-    </a>
+    <div class="d-flex">
+      <%= link_to "Home", root_path, class: 'navbar-brand' %>
+      <%= link_to "Posts", posts_path, class: 'navbar-brand' %>
+    </div>
     <% if current_user %>
-      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: {turbo: "false"} %>
+      <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: 'btn btn-outline-danger' %>
     <% end %>
   </div>
 </nav>

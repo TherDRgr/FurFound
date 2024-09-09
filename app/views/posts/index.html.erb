@@ -1,27 +1,23 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Posts</h1>
-
-<table>
+<table class="table table-striped table-bordered">
+<h1 class="d-flex justify-content-center">Lost Pets</h1>
   <thead>
     <tr>
+      <th>Photo</th>
       <th>Name</th>
       <th>Color</th>
       <th>Species</th>
-      <th>QR Code</th>
       <th>Breed</th>
       <th>Last Seen Location</th>
-      <th>Date Reported</th>
+      <th>Date Missing</th>
+      <th>Reported By</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <div id="posts">
-      <% @posts.each do |post| %>
-        <%= render partial: 'post', locals: { post: post } %>
-      <% end %>
-    </div>
+    <% @posts.each do |post| %> <!-- Iterate over @posts only once -->
+      <%= render 'post', post: post %> <!-- Ensure you're using a single render per post -->
+    <% end %>
   </tbody>
 </table>
 
-<%= link_to "New post", new_post_path %>
+<%= link_to 'New Post', new_post_path, class: 'btn btn-success' %>
