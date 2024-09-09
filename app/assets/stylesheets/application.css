@@ -31,4 +31,15 @@ h1, h2, h3, h4, h5, h6 {
   h1 {
     font-weight: 700;
   }
+
+  .post-name-link {
+    color: black; /* Text color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .post-name-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: black; /* Ensure color stays black on hover */
+  }
+  
   
