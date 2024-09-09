@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   private
     # QR Code API request
     def generate_qr_code(post)
-      qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?data=#{ERB::Util.url_encode(post_url(post))}&size=150x150"
+      qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?data=#{ERB::Util.url_encode(show_post_url(post))}&size=150x150"
       post.update(qr_code: qr_code_url)
     end
     

@@ -1,0 +1,44 @@
+<div class="container my-5">
+
+  <h1 class="mb-4 text-center">Details of <%= @post.name %></h1>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-center">
+      <% if @post.photo.present? %>
+        <%= image_tag @post.photo.full.url, class: 'img-thumbnail img-fluid', style: 'max-width: 100%; height: auto;' %>
+      <% else %>
+        <p>No Available Photo</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+      <dl class="row">
+        <dt class="col-sm-4"><strong>Responds to:</strong></dt>
+        <dd class="col-sm-8"><%= @post.name %></dd>
+
+        <dt class="col-sm-4"><strong>Color:</strong></dt>
+        <dd class="col-sm-8"><%= @post.color %></dd>
+
+        <dt class="col-sm-4"><strong>Species:</strong></dt>
+        <dd class="col-sm-8"><%= @post.species %></dd>
+
+        <dt class="col-sm-4"><strong>Breed:</strong></dt>
+        <dd class="col-sm-8"><%= @post.breed %></dd>
+
+        <dt class="col-sm-4"><strong>Last Seen Location:</strong></dt>
+        <dd class="col-sm-8"><%= @post.last_seen_location %></dd>
+
+        <dt class="col-sm-4"><strong>Date Missing:</strong></dt>
+        <dd class="col-sm-8"><%= @post.date_reported %></dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-auto d-flex">
+      <%= link_to 'Back', posts_path, class: 'btn btn-secondary btn-sm me-2' %>
+    </div>
+  </div>
+</div>
