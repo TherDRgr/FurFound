@@ -47,6 +47,10 @@ class Admin::UsersController < ApplicationController
 
     redirect_to admin_users_path, notice: 'User was successfully approved.'
   end
+
+  def profile
+    @user = current_user
+  end
   
   private
 

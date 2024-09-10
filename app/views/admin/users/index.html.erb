@@ -1,40 +1,43 @@
-<h1>All Users</h1> 
-<%= link_to 'Add a New User', new_admin_user_path, class: 'btn btn-primary' %>
+<h1 class="text-center mb-4">All Users</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Email</th>
-      <th scope="col">Name</th>
-      <th scope="col">Role</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.email %></td>
-        <td><%= user.name %></td>
-        <td><%= user.role %></td>
-        <td>
-        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" class="btn btn-warning">
-          
-          <%= link_to 'Edit', edit_admin_user_path(user) %>
-          </button>
-          
-          <%= button_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'%>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12 col-lg-10"> <!-- Adjusted column width for better fit -->
+      <div class="d-flex justify-content-end mb-3">
+        <%= link_to 'Add a New User', new_admin_user_path, class: 'btn btn-primary' %>
+      </div>
 
-          <% unless user.approved? %>
-            <%=  button_to 'Approve', approve_admin_user_path(user), method: :patch, class: 'btn btn-success' %>
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Role</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td><%= user.name %></td>
+              <td><%= user.phone_number %></td>
+              <td><%= user.role.capitalize %></td>
+              <td>
+                <div class="btn-group" role="group">
+                  <%= link_to 'Edit', edit_admin_user_path(user), class: 'btn btn-warning btn-sm' %>
+                  <%= button_to 'Delete', admin_user_path(user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
 
-        </div>
-          
+                  <% unless user.approved? %>
+                    <%= button_to 'Approve', approve_admin_user_path(user), method: :patch, class: 'btn btn-success btn-sm' %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

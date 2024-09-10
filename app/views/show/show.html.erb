@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+      <div class="alert alert-success" role="alert">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
 <div class="container my-5">
 
   <h1 class="mb-4 text-center">Details of <%= @post.name %></h1>
@@ -11,6 +17,10 @@
       <% end %>
     </div>
   </div>
+
+    <div class="d-flex justify-content-center m-3">
+        <%= button_to "Have you found #{@post.name}?", notify_user_path(@post), method: :post, class: 'btn btn-danger fw-bold fs-4', remote: true %>
+    </div>
 
   <div class="row justify-content-center mb-4">
     <div class="col-md-8">

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  get 'profiles/edit'
+  get 'profiles/update'
   get 'show/show'
   namespace :admin do
     resources :users, only: [:index, :new, :create, :edit, :update, :destroy] do
@@ -7,11 +10,19 @@ Rails.application.routes.draw do
       end
     end
   end
+
   devise_for :users
   resources :posts
   root 'pages#home'
 
+  # Config/routes.rb
   get 'show/:id', to: 'show#show', as: 'show_post'
+  post 'notify_user/:id', to: 'show#notify_user', as: 'notify_user'
+
+  # Updated route for profile
+  get 'profile', to: 'profiles#show'
+
+  resource :profile, only: [:show, :edit, :update]
 
   # get 'about', to 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

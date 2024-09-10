@@ -1,0 +1,48 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <!-- Profile Picture at the top -->
+      <div class="text-center mb-4">
+        <div class="profile-picture">
+          <%= image_tag @user.profile_picture.url, class: 'rounded-circle img-fluid shadow', style: 'width: 150px; height: 150px;' if @user.profile_picture? %>
+        </div>
+      </div>
+
+      <!-- Profile Information -->
+      <div class="card shadow border-0">
+        <div class="card-header text-center bg-primary text-white">
+          <h2 class="fw-bold">My Profile</h2>
+        </div>
+        <div class="card-body p-4">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Name:</strong>
+              <span class="float-end"><%= @user.name %></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Email:</strong>
+              <span class="float-end"><%= @user.email %></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Phone Number:</strong>
+              <span class="float-end"><%= @user.phone_number %></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Home Address:</strong>
+              <span class="float-end"><%= @user.home_address %></span>
+            </li>
+            <li class="list-group-item">
+              <strong>Account Number:</strong>
+              <span class="float-end"><%= @user.account_number %></span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Edit Profile Button -->
+        <div class="card-footer text-center">
+          <%= link_to 'Edit Profile', edit_profile_path, class: 'btn btn-primary px-4 py-2 fw-bold' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
