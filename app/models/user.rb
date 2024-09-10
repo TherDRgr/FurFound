@@ -9,6 +9,10 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
 
+  before_create :generate_account_number
+
+  mount_uploader :profile_picture, ProfilePictureUploader
+
   def set_default_approved
     self.approved ||= false
   end
@@ -24,4 +28,11 @@ class User < ApplicationRecord
   def set_default_role
     self.role ||= :user
   end
+
+  def generate_account_number
+    month_year = Time.current.strftime("%m%y") # Current month and year in MMYY format
+    random_digits = Array.new(12) { rand(0..9) }.join # Generate 12 random digits
+    self.account_number = "#{month_year}#{random_digits}" # Combine them
+  end
+
 end

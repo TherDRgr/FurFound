@@ -1,22 +1,35 @@
-<div class ="container">
-<h1>FurFound</h1>
-<p>A platform to help reunite lost pets with their owners.</p>
+<div class="container text-center mt-5">
+  <h1 class="display-4 mb-4">FurFound</h1>
+  <p class="lead mb-4">A platform to help reunite lost pets with their owners.</p>
 
-<% if current_user %>
-    <p> Hello <%= current_user.role %>, welcome to FurFound!</p>
+  <% if current_user %>
+    <p class="lead mb-4">Hello <%= current_user.role.capitalize %>, welcome to FurFound!</p>
 
     <% if current_user.admin? %>
-    
-    <%= render 'pages/admin' %>
-
+      <%= render 'pages/admin' %>
     <% end %>
 
-<% else %>
-
-    <p> you are not signed in. </p>
-    <%= link_to "Sign up", new_user_registration_path %> | 
-    <%= link_to "Login", new_user_session_path %>
-
-<% end %>
+  <% else %>
+    <p class="lead mb-4">You are not signed in.</p>
+    <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary btn-lg me-2' %>
+    <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary btn-lg' %>
+  <% end %>
 </div>
 
+<!-- Placeholder for animal photos -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Secure your pets</h2>
+  <div class="row">
+    <!-- Example of a placeholder image -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Placeholder image">
+        <div class="card-body">
+          <h5 class="card-title">Animal Name</h5>
+          <p class="card-text">Details about the animal.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Repeat above block for more placeholders -->
+  </div>
+</div>

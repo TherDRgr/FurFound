@@ -1,0 +1,19 @@
+<h1><%= @user.name %>'s Profile</h1>
+
+<div class="profile">
+  <div class="profile-picture">
+    <% if @user.profile_picture.present? %>
+      <%= image_tag @user.profile_picture.url, alt: 'Profile Picture', class: 'img-thumbnail' %>
+    <% else %>
+      <p>No profile picture uploaded.</p>
+    <% end %>
+  </div>
+
+  <div class="profile-details">
+    <p><strong>Phone Number:</strong> <%= @user.phone_number %></p>
+    <p><strong>Home Address:</strong> <%= @user.home_address %></p>
+    <p><strong>Account Number:</strong> <%= @user.account_number %></p>
+  </div>
+</div>
+
+<%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-primary' %>

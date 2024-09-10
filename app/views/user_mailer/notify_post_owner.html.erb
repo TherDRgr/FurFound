@@ -2,10 +2,11 @@
 
 <p>Someone has just clicked the button indicating that they may have found your lost pet, <%= @post.name %>.</p>
 
-<p>Their approximate location:</p>
-<p>Latitude: <%= @latitude %>, Longitude: <%= @longitude %></p>
-
-<p>We hope this information helps in your search.</p>
+<p>We have given them your contact details</p>
+<ul>
+  <li><strong>Name:</strong> <%= @user.name %></li>
+  <li><strong>Phone No:</strong> </li>
+</ul>
 
 <p>Please check the FurFound platform for further updates.</p>
 
