@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   resources :posts
   root 'pages#home'
 
+  # config/routes.rb
   get 'show/:id', to: 'show#show', as: 'show_post'
+  post 'notify_user/:id', to: 'show#notify_user', as: 'notify_user'
 
   # get 'about', to 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

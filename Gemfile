@@ -72,3 +72,4 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 
 gem 'carrierwave', '~> 2.2'
 gem 'mini_magick'
+gem 'webpacker'
