@@ -70,6 +70,14 @@ end
 
 gem 'devise', '~> 4.9', '>= 4.9.2'
 
+#Photo Uploader and Modifier
 gem 'carrierwave', '~> 2.2'
 gem 'mini_magick'
 gem 'webpacker'
+
+#Google Authentication
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
+
+gem 'dotenv-rails', groups: [:development, :test]
