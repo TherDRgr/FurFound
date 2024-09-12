@@ -108,7 +108,7 @@ Devise.setup do |config|
   # When false, Devise will not attempt to reload routes on eager load.
   # This can reduce the time taken to boot the app but if your application
   # requires the Devise mappings to be loaded during boot time the application
-  # won't boot properly.
+# won't boot properly.
   # config.reload_routes = true
 
   # ==> Configuration for :database_authenticatable
@@ -310,4 +310,18 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # config/initializers/devise.rb
+  # ==> OmniAuth
+  config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
+    scope: 'userinfo.email, userinfo.profile',
+    prompt: 'select_account',
+    provider_ignores_state: true,
+    image_aspect_ratio: 'square',
+    access_type: 'offline'
+  }
+
+  # # Ensure CSRF token is handled correctly
+  config.skip_session_storage = [:http_auth, :token_auth]
+
 end

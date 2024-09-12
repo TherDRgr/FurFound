@@ -4,6 +4,7 @@
       <%= link_to "Home", root_path, class: 'navbar-brand' %>
       <%= link_to "Posts", posts_path, class: 'navbar-brand' %>
       <%= link_to "Profile", profile_path, class: 'navbar-brand' %>
+      <%= link_to "Pets", pets_path, class: 'navbar-brand' %>
     </div>
     <% if current_user %>
       <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: 'btn btn-outline-danger' %>

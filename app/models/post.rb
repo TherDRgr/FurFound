@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
     belongs_to :user
+    belongs_to :reportable, polymorphic: true, optional: true
+    
     validates :name, uniqueness: true
     validates :color, :species, :breed, :last_seen_location, :date_reported, presence: true
     

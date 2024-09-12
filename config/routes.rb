@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pets
   get 'profiles/show'
   get 'profiles/edit'
   get 'profiles/update'
@@ -11,7 +12,18 @@ Rails.application.routes.draw do
     end
   end
 
-  devise_for :users
+  # Pets Route Config
+  resources :pets do
+    post 'report_missing', on: :member
+  end
+
+  # Google OmniAuth Config
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+
+  get 'users/auth/google_oauth2', to: 'users/omniauth_callbacks#passthru'
+
   resources :posts
   root 'pages#home'
 
@@ -24,6 +36,8 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show, :edit, :update]
 
+  # Google User Sign Up 
+  
   # get 'about', to 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

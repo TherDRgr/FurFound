@@ -1,0 +1,10 @@
+<div class="container mt-5">
+  <h1 class="text-center mb-4">FurFound</h1>
+
+  <%= render "form", pet: @pet %>
+
+  <div class="text-center mt-4">
+    <%= link_to "Show this pet", @pet, class: 'btn btn-secondary' %> |
+    <%= link_to "Back to pets", pets_path, class: 'btn btn-secondary' %>
+  </div>
+</div>

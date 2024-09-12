@@ -51,7 +51,7 @@
   <div class="row justify-content-center">
     <div class="col-auto d-flex">
       <%= link_to 'Back', posts_path, class: 'btn btn-secondary btn-sm me-2' %>
-      <% if @post.user == current_user %>
+      <% if @post.user == current_user || current_user.admin? %>
             <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning btn-sm me-2' %>
         <%= button_to 'Delete', @post, method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
       <% end %>

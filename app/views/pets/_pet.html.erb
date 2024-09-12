@@ -1,0 +1,19 @@
+<div class="card mb-4 mx-auto" style="max-width: 600px;">
+  <div class="card-body">
+    <h5 class="card-title text-center"><%= pet.name %></h5>
+
+    <p class="card-text">
+      <strong>Color:</strong> <%= pet.color %><br>
+      <strong>Breed:</strong> <%= pet.breed %><br>
+      <strong>Species:</strong> <%= pet.species %><br>
+    </p>
+
+    <div class="text-center">
+      <% if pet.photo.present? %>
+        <%= image_tag pet.photo.url, class: "img-fluid pet-photo" %>
+      <% else %>
+        <p>No photo available</p>
+      <% end %>
+    </div>
+  </div>
+</div>
