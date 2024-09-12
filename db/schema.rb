@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_10_232713) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_11_222603) do
+  create_table "pets", force: :cascade do |t|
+    t.string "name"
+    t.string "color"
+    t.string "breed"
+    t.string "species"
+    t.integer "user_id", null: false
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_pets_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "name"
     t.string "color"
@@ -47,5 +59,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_10_232713) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "pets", "users"
   add_foreign_key "posts", "users"
 end

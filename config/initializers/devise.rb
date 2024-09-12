@@ -316,9 +316,12 @@ Devise.setup do |config|
   config.omniauth :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_CLIENT_SECRET'], {
     scope: 'userinfo.email, userinfo.profile',
     prompt: 'select_account',
+    provider_ignores_state: true,
     image_aspect_ratio: 'square',
-    image_size: 50,
     access_type: 'offline'
-}
+  }
+
+  # # Ensure CSRF token is handled correctly
+  config.skip_session_storage = [:http_auth, :token_auth]
 
 end

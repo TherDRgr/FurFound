@@ -1,0 +1,9 @@
+<div class="container mt-5">
+  <p class="text-success"><%= notice %></p>
+
+  <%= render partial: 'pet', locals: { pet: @pet } %>
+
+  <div class="d-flex justify-content-center">
+    <%= link_to "Edit Details", edit_pet_path(@pet), class: 'btn btn-secondary' %>
+  </div>
+</div>

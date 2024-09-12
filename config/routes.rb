@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pets
   get 'profiles/show'
   get 'profiles/edit'
   get 'profiles/update'
@@ -11,6 +12,12 @@ Rails.application.routes.draw do
     end
   end
 
+  # Pets Route Config
+  resources :pets do
+    post 'report_missing', on: :member
+  end
+
+  # Google OmniAuth Config
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
