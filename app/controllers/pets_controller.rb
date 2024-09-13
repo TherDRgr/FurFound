@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_action :authenticate_user! # Ensure user is logged in before creating a pet
-  before_action :set_pet, only: %i[show edit update destroy]
+  before_action :set_pet, only: %i[show edit update destroy report_missing]
 
   # GET /pets or /pets.json
   def index
@@ -33,6 +33,7 @@ class PetsController < ApplicationController
   # PATCH/PUT /pets/1 or /pets/1.json
   def update
     if @pet.update(pet_params)
+      update_post_if_reported(@pet) # Update the associated post if it exists
       redirect_to @pet, notice: 'Pet was successfully updated.'
     else
       render :edit
@@ -77,6 +78,22 @@ class PetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
       @pet = Pet.find(params[:id])
+    end
+
+    def update_post_if_reported(pet)
+      # Find the corresponding post for the pet by name
+      post = Post.find_by(name: pet.name)
+  
+      # If post exists, update it with the new pet details
+      if post
+        post.update(
+          name: pet.name,
+          color: pet.color,
+          species: pet.species,
+          breed: pet.breed,
+          photo: pet.photo
+        )
+      end
     end
 
     # Only allow a list of trusted parameters through.

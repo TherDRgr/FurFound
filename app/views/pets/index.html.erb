@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <h1 class="text-center mb-4">Pets Profile</h1>
-    <div class="d-flex justify-content-center mb-3">
+  <div class="d-flex justify-content-center mb-3">
     <%= link_to "Add Pet", new_pet_path, class: "btn btn-success" %>
-    </div>
+  </div>
 
   <% if notice.present? %>
     <div class="alert alert-success text-center" role="alert">
@@ -24,9 +24,17 @@
             <p class="card-text"><strong>Breed:</strong> <%= pet.breed %></p>
             <p class="card-text"><strong>Species:</strong> <%= pet.species %></p>
             <p class="card-text"><strong>Color:</strong> <%= pet.color %></p>
-            <div class="text-center">
-            <%= link_to 'View Pet', pet_path(pet), class: 'btn btn-primary' %>
-            <%= button_to 'Report Missing', report_missing_pet_path(pet), method: :post, class: 'btn btn-danger' %>
+            <div class="d-flex justify-content-center">
+              <%= link_to 'View Pet', pet_path(pet), class: 'btn btn-primary' %>
+
+              <% post = Post.find_by(name: pet.name) %>
+              <% if post.present? %>
+                <!-- If pet is already reported, show Edit Report button for both admin and owner -->
+                <%= link_to 'Edit Report', edit_post_path(post), class: 'btn btn-warning' %>
+              <% else %>
+                <!-- If no post exists, show Report Missing button for regular users -->
+                <%= button_to 'Report Missing', report_missing_pet_path(pet), method: :post, class: 'btn btn-danger' %>
+              <% end %>
             </div>
           </div>
         </div>
