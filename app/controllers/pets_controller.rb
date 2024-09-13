@@ -4,7 +4,11 @@ class PetsController < ApplicationController
 
   # GET /pets or /pets.json
   def index
-    @pets = Pet.all
+    if current_user.admin?
+      @pets = Pet.all
+    else
+      @pets = current_user.pets
+    end
   end
 
   # GET /pets/1 or /pets/1.json
