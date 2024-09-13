@@ -8,8 +8,6 @@ class User < ApplicationRecord
   enum role: { user: 0, admin: 1 }
   after_initialize :set_default_role, if: :new_record?
 
-  validates :phone_number, :account_number, presence: true
-
   has_many :posts, dependent: :destroy
   has_many :pets
 

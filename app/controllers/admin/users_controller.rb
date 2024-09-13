@@ -59,7 +59,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :name, :role, :approved)
+    params.require(:user).permit(:email, :name, :role, :approved, :phone_number)
   end
 
   def check_admin

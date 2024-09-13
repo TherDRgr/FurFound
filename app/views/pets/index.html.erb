@@ -10,35 +10,81 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <% @pets.each do |pet| %>
-      <div class="col-md-4 mb-4">
-        <div class="card shadow-sm">
-          <% if pet.photo.present? %>
-            <%= image_tag pet.photo.url, class: 'card-img-top img-fluid pet-photo' %>
-          <% else %>
-            <img src="path/to/placeholder-image.png" class="card-img-top img-fluid pet-photo" alt="Placeholder Image">
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= pet.name %></h5>
-            <p class="card-text"><strong>Breed:</strong> <%= pet.breed %></p>
-            <p class="card-text"><strong>Species:</strong> <%= pet.species %></p>
-            <p class="card-text"><strong>Color:</strong> <%= pet.color %></p>
-            <div class="d-flex justify-content-center">
-              <%= link_to 'View Pet', pet_path(pet), class: 'btn btn-primary' %>
-
-              <% post = Post.find_by(name: pet.name) %>
-              <% if post.present? %>
-                <!-- If pet is already reported, show Edit Report button for both admin and owner -->
-                <%= link_to 'Edit Report', edit_post_path(post), class: 'btn btn-warning' %>
-              <% else %>
-                <!-- If no post exists, show Report Missing button for regular users -->
-                <%= button_to 'Report Missing', report_missing_pet_path(pet), method: :post, class: 'btn btn-danger' %>
-              <% end %>
+  <% if current_user.admin? %>
+    <!-- Admin view with up to 9 cards per row -->
+    <div class="row">
+      <% @pets.each_slice(3) do |slice| %>
+        <div class="col-md-12 mb-4">
+          <div class="row">
+            <% slice.each do |pet| %>
+              <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                  <% if pet.photo.present? %>
+                    <%= image_tag pet.photo.url, class: 'card-img-top img-fluid pet-photo' %>
+                  <% else %>
+                    <img src="path/to/placeholder-image.png" class="card-img-top img-fluid pet-photo" alt="Placeholder Image">
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= pet.name %>
+                      <% post = Post.find_by(name: pet.name) %>
+                      <% if post.present? %>
+                        <span class="text-warning" data-toggle="tooltip" title="Already Reported">🚨</span>
+                      <% end %>
+                    </h5>
+                    <p class="card-text"><strong>Breed:</strong> <%= pet.breed %></p>
+                    <p class="card-text"><strong>Species:</strong> <%= pet.species %></p>
+                    <p class="card-text"><strong>Color:</strong> <%= pet.color %></p>
+                    <div class="d-flex justify-content-center">
+                      <%= link_to 'View Pet', pet_path(pet), class: 'btn btn-primary' %>
+                      <% if post.present? %>
+                        <%= link_to 'Edit Report', edit_post_path(post), class: 'btn btn-warning' %>
+                      <% else %>
+                        <%= button_to 'Report Missing', report_missing_pet_path(pet), method: :post, class: 'btn btn-danger' %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <!-- Regular user view -->
+    <div class="row">
+      <% @pets.each do |pet| %>
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm">
+            <% if pet.photo.present? %>
+              <%= image_tag pet.photo.url, class: 'card-img-top img-fluid pet-photo' %>
+            <% else %>
+              <img src="path/to/placeholder-image.png" class="card-img-top img-fluid pet-photo" alt="Placeholder Image">
+            <% end %>
+            <div class="card-body">
+              <h5 class="card-title">
+                <%= pet.name %>
+                <% post = Post.find_by(name: pet.name) %>
+                <% if post.present? %>
+                  <span class="text-warning" data-toggle="tooltip" title="Already Reported">🚨</span>
+                <% end %>
+              </h5>
+              <p class="card-text"><strong>Breed:</strong> <%= pet.breed %></p>
+              <p class="card-text"><strong>Species:</strong> <%= pet.species %></p>
+              <p class="card-text"><strong>Color:</strong> <%= pet.color %></p>
+              <div class="d-flex justify-content-center">
+                <%= link_to 'View Pet', pet_path(pet), class: 'btn btn-primary' %>
+                <% if post.present? && post.user == current_user %>
+                  <%= link_to 'Edit Report', edit_post_path(post), class: 'btn btn-warning' %>
+                <% elsif post.blank? %>
+                  <%= button_to 'Report Missing', report_missing_pet_path(pet), method: :post, class: 'btn btn-danger' %>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
