@@ -1,23 +1,29 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
+/* Ensure all links have the same color as your text color */
+a {
+  color: inherit; 
+  text-decoration: none; 
+}
 
- /* app/assets/stylesheets/custom.css */
+a:link {
+  color: inherit; 
+}
+
+a:visited {
+  color: inherit; 
+}
+
+a:hover {
+  color: #ffffff; 
+}
+
+a:active {
+  color: #4E342E;
+}
+
 
 /* Apply Poppins to main headings */
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
   }
@@ -49,37 +55,42 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .img-thumbnail:hover {
-    transform: scale(1.2); /* Zoom in effect */
+    transform: scale(1.2); 
   }
   
 /* Ensure the table takes full width but maintains fixed column widths */
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* Fix column widths */
+  table-layout: fixed; 
 }
 
 .table th, .table td {
   text-align: left;
   padding: 8px;
   vertical-align: middle;
-  overflow: hidden; /* Prevent content overflow */
+  overflow: hidden; 
+}
+
+.table thead th {
+  background-color: #3e2723;
+  color: #ffffff; 
 }
 
 .table td img {
-  max-width: 150px; /* Ensure images do not exceed this width */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 150px; 
+  height: auto;
 }
 
 /* Optional: Specific column widths */
 .table th:nth-child(1),
 .table td:nth-child(1) {
-  width: 200px; /* Fixed width for Photo column */
+  width: 200px; 
 }
 
 .table th:nth-child(2),
 .table td:nth-child(2) {
-  width: 200px; /* Fixed width for Name column */
+  width: 200px; 
 }
 
 /* Responsive table */
@@ -99,3 +110,45 @@ h1, h2, h3, h4, h5, h6 {
   height: 500px;
   object-fit: cover;
 }
+
+/* Button Styling */
+.btn {
+  background-color: #FFF3E0; 
+  color: #4E342E; 
+}
+
+.btn:hover {
+  background-color: #3E2723; 
+  color: #FFF;
+}
+
+/* Card Background */
+.card {
+  background-color: #FFFDE7; 
+  color: #4E342E; 
+}
+
+/* Table Styling */
+.table {
+  background-color: #FFFDE7; 
+  color: #4E342E; 
+}
+
+.table td, .table th {
+  color: #4E342E;
+}
+
+.list-group-item {
+  background-color: #FFFDE7;
+}
+
+/* CSS for icon styling */
+i.fab {
+  font-size: 24px; /* Adjust size as needed */
+  opacity: 0.7; /* Optional: Set opacity for icons */
+}
+
+i.fab:hover {
+  opacity: 1; /* Optional: Full opacity on hover */
+}
+

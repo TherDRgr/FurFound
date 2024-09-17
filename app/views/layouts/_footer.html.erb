@@ -1,0 +1,44 @@
+<!-- Footer -->
+<footer class="bg-dark-brown text-white mt-5 footer-sm">
+  <div class="container py-2">
+    <div class="row">
+      <!-- Logo Section -->
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase">FurFound</h6>
+        <p class="small">Helping reunite lost pets with their owners.</p>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase">Quick Links</h6>
+        <ul class="list-unstyled small">
+          <li><%= link_to "Home", root_path, class: 'text-dark-brown' %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path, class: 'text-dark-brown' %></li>
+          <li><%= link_to "Login", new_user_session_path, class: 'text-dark-brown' %></li>
+          <li><%= link_to "Lost & Found Posts", posts_path, class: 'text-dark-brown' %></li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="col-md-4 mb-3">
+        <h6 class="text-uppercase">Contact Us</h6>
+        <p class="small">Email: <a href="mailto:contact@furfound.com" class="text-dark-brown">contact@furfound.com</a></p>
+        <p class="small">Phone: <a href="tel:+1234567890" class="text-dark-brown">+1 234 567 890</a></p>
+        <p class="small">Address: 123 Pet St., Pet City, PC 12345</p>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="text-center mt-3 small">
+        <a href="#" class="text-dark-brown mx-2">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="text-dark-brown mx-2">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+  <div class="bg-dark-brown text-white text-center py-1">
+    <small>&copy; 2024 FurFound. All rights reserved.</small>
+  </div>
+</footer>

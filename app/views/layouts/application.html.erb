@@ -6,13 +6,21 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css">
+
+
+
+    <!-- Rails Stylesheets -->
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload", media: 'all' %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'responsive', media: 'all' %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;500&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
+    <!-- Importmap for JavaScript -->
+    <%= javascript_importmap_tags %>
   </head>
 
   <body>
@@ -20,9 +28,14 @@
       <%= render 'layouts/navbar' %>
       <%= render 'layouts/alerts' %>
     </header>
-    <main>
 
-    <%= yield %>
+    <main>
+      <%= yield %>
     </main>
-  </body>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYhxWx3nDQ5LZBSVbZ11JO3eI/DEjfbxGpdJ5xgVfKNVRV9iS5D6wO9Ci" crossorigin="anonymous"></script>
+  
+      <%= render 'layouts/footer' %> <!-- Footer rendered here -->
+    </body>
 </html>

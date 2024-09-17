@@ -1,4 +1,3 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
 import "controllers"
 
@@ -12,4 +11,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
+// Import the hamburger menu functionality
+import "hamburger_menu";
