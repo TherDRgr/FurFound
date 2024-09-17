@@ -65,6 +65,10 @@ $white: #ffffff;
   .card {
     margin-bottom: 20px;
   }
+
+  .card-text{
+    margin: 0px;
+  }
   
   .card-img-top {
     width: 100%;
@@ -118,7 +122,17 @@ $white: #ffffff;
   /* Buttons adjustments */
   .btn {
     font-size: 0.9rem;
+    border-color: #4E342E;
   }
+
+  .btn:hover{
+    border-color: #FFFDE7;
+  }
+
+  .btn-group .btn {
+    margin-right: 5px; /* Adjust this value as needed */
+  }
+  
   
   @media (max-width: 576px) {
     .btn {
@@ -139,9 +153,6 @@ $white: #ffffff;
     z-index: 1;
     background-color: #FFFDE7; 
     color: #4E342E; 
-    // background-position: center center;
-    // background-size: cover; 
-    // background-repeat: no-repeat;
   }
 
   body::before {
@@ -161,7 +172,7 @@ $white: #ffffff;
 
  /* Navbar Styling */
 .navbar {
-  background-color: #FFF3E0; 
+  background-color: #b4ab9bbe; 
   color: #4E342E;
   position: -webkit-sticky; /* For Safari */
   position: sticky; /* Modern browsers */

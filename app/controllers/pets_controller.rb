@@ -28,6 +28,7 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
+      generate_qr_code(@pet)
       redirect_to @pet, notice: 'Pet was successfully created.'
     else
       render :new
@@ -46,14 +47,11 @@ class PetsController < ApplicationController
 
   # DELETE /pets/1 or /pets/1.json
   def destroy
-    @pet.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to pets_url, notice: "Pet was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @pet = Pet.find(params[:id])
+    @pet.destroy
+    redirect_to pets_url, notice: 'Pet was successfully deleted.'
   end
-
+  
   def report_missing
     @pet = Pet.find(params[:id])
 
@@ -68,7 +66,8 @@ class PetsController < ApplicationController
       last_seen_location: last_seen_location,
       date_reported: Date.today, # Use current date
       user: current_user, # Associate with current user
-      photo: @pet.photo # Use the pet's photo
+      photo: @pet.photo, # Use the pet's photo
+      qr_code: @pet.qr_code
     )
 
     if @post.save
@@ -84,6 +83,11 @@ class PetsController < ApplicationController
       @pet = Pet.find(params[:id])
     end
 
+    def generate_qr_code(pet)
+      qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?data=#{ERB::Util.url_encode(pet_url(pet))}&size=150x150"
+      pet.update(qr_code: qr_code_url)
+    end
+    
     def update_post_if_reported(pet)
       # Find the corresponding post for the pet by name
       post = Post.find_by(name: pet.name)
@@ -95,7 +99,8 @@ class PetsController < ApplicationController
           color: pet.color,
           species: pet.species,
           breed: pet.breed,
-          photo: pet.photo
+          photo: pet.photo,
+          qr_code: pet.qr_code
         )
       end
     end

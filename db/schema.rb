@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_11_222603) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_17_131121) do
   create_table "pets", force: :cascade do |t|
     t.string "name"
     t.string "color"
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_222603) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "qr_code"
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 

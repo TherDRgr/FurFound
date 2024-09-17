@@ -1,17 +1,19 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
+    <!-- Logo and Home Link -->
     <%= link_to root_path, class: 'navbar-brand' do %>
       <%= image_tag 'FurFound.png', alt: 'FurFound Logo', class: 'img-fluid' %>
     <% end %>
 
-    <!-- Hamburger menu button -->
+    <!-- Hamburger Menu Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Collapsible navbar menu -->
+    <!-- Collapsible Navbar Menu -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
+        <!-- Navigation Links -->
         <li class="nav-item">
           <%= link_to "Posts", posts_path, class: 'nav-link' %>
         </li>
@@ -21,8 +23,16 @@
         <li class="nav-item">
           <%= link_to "Pets", pets_path, class: 'nav-link' %>
         </li>
+
+        <!-- Admin Link (Visible Only to Admins) -->
+        <% if current_user && current_user.admin? %>
+          <li class="nav-item">
+            <%= link_to "Users", admin_users_path, class: 'nav-link' %>
+          </li>
+        <% end %>
       </ul>
 
+      <!-- Sign Out Button (Visible Only to Logged-In Users) -->
       <% if current_user %>
         <%= button_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo: "false" }, class: 'btn btn-outline-danger' %>
       <% end %>
