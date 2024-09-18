@@ -68,11 +68,20 @@ Ensure you have the following installed on your system:
    ```bash
    rails server / rails s
 
+ 6. **### Seed the Database:** After setting up your database, run the following command to seed it with a pre-made admin account:
+    ```bash
+    rails db:seed
+    
+## Admin Credentials
+- Email: admin@test.com
+- Password: furfoundadmin123!
+
 ## Running the Application
 
 Open your browser and navigate to http://localhost:3000.
 You can sign up as a regular user or log in as an admin if you've already created an account.
 Explore the features such as adding pets, reporting missing pets, and posting lost or found pet notices.
+
 
 ## Usage
 ### User Roles
