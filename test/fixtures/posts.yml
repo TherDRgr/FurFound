@@ -1,0 +1,17 @@
+one:  
+  name: "Lost Dog"  
+  color: "Black" 
+  species: "Dog"  
+  breed: "Labrador" 
+  last_seen_location: "Park"  
+  date_reported: <%= Date.today %>  
+  user: one
+
+two:  
+  name: "Lost Cat"  
+  color: "White"  
+  species: "Cat"  
+  breed: "Persian"  
+  last_seen_location: "Home"  
+  date_reported: <%= Date.today %>  
+  user: admin

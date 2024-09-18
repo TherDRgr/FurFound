@@ -5,7 +5,6 @@
 
   <% if current_user %>
     <p class="lead mb-4">Hello <%= current_user.name.capitalize %>, welcome to FurFound!</p>
-
   <% else %>
     <p class="lead mb-4">You are not signed in.</p>
     <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary btn-lg me-2' %>
@@ -13,23 +12,66 @@
   <% end %>
 </div>
 
-<!-- Placeholder for animal photos -->
+<!-- Placeholder for Missing with Reward photos -->
 <div class="container mt-5">
-  <h2 class="text-center mb-4">Secure your pets</h2>
+  <h2 class="text-center mb-4">Missing Pets</h2>
   <div class="row">
     <!-- Example of a placeholder image -->
     <div class="col-md-4 mb-4">
       <div class="card">
-        <img src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/459002488_2015187848903948_8440110476678346629_n.jpg?stp=cp6_dst-jpg&_nc_cat=100&ccb=1-7&_nc_sid=aa7b47&_nc_eui2=AeH8ulAk7YmSvdTOmMOX3ClOy-KhqdGjsVzL4qGp0aOxXBov_7V6HJy8cBgT9xXaJuuc0KkwN3MqgCA692zs9h6_&_nc_ohc=iWV5MdUHt5cQ7kNvgFBmlpX&_nc_ht=scontent.fmnl13-1.fna&_nc_gid=AaRdtK6PdOOgPqqapL3LZon&oh=00_AYCr1gj86u6I7dOWHXfFUnmWB2uxPhWU4UzMb0yLBDy7wQ&oe=66E6A53A" class="card-img-top" alt="Placeholder image">
+        <%= image_tag "Missing_1.jpg", class: "card-img-top", alt: "Placeholder image" %>
         <div class="card-body">
-          <h5 class="card-title">Pet Name</h5>
-          <p class="card-text">Details about the animal.</p>
+          <h5 class="card-title">Mozy</h5>
+          <p class="card-text">Reward: Contact Owner</p>
         </div>
       </div>
     </div>
-    <!-- Repeat above block for more placeholders -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag "Missing_2.jpg", class: "card-img-top", alt: "Placeholder image" %>
+        <div class="card-body">
+          <h5 class="card-title">Vhagar</h5>
+          <p class="card-text">Reward ₱5000</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag "Missing_3.jpg", class: "card-img-top", alt: "Placeholder image" %>
+        <div class="card-body">
+          <h5 class="card-title">TonTon</h5>
+          <p class="card-text">Reward ₱15,000</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-
-
+<!-- Placeholder for Adopt -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Help Strays out</h2>
+  <div class="row">
+    <!-- Example of a placeholder image -->
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag "Adopt_1.jpg", class: "card-img-top", alt: "Placeholder image" %>
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag "Adopt_2.jpg", class: "card-img-top", alt: "Placeholder image" %>
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card">
+        <%= image_tag "Adopt_3.jpg", class: "card-img-top", alt: "Placeholder image" %>
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

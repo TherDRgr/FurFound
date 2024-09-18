@@ -1,0 +1,16 @@
+# test/fixtures/users.yml
+one:  
+  name: "User One"  
+  email: "userone@example.com"  
+  password_digest: "password123"
+  role: 0  
+  approved: true  
+
+admin:  
+  name: "Admin"  
+  email: "admin@test.com" 
+  password_digest: "furfoundadmin123!"
+  role: 1  
+  approved: true
+
+
