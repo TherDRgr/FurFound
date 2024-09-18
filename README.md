@@ -126,5 +126,3 @@ Third-Party Services: Google OAuth for sign-up, Fly.io for deployment
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 Thank you for using FurFound! We hope this platform helps reunite pets with their owners.
-
-This `README.md` covers all aspects of FurFound, including features, installation steps, usage, deployment, and more. Let me know if you need to add anything specific!
