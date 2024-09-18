@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <!-- Header Section -->
+  <div class="row mb-5 text-center">
+    <div class="col">
+      <h1 class="display-4 mb-4">About FurFound</h1>
+      <p class="lead text-muted">Reuniting pets with their families through a compassionate, community-driven platform.</p>
+    </div>
+  </div>
+
+  <!-- Mission Section -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <h2 class="mb-3">Our Mission</h2>
+      <p class="text-muted">At FurFound, our mission is to reunite lost pets with their owners through a simple, efficient, and community-driven platform. We believe that every pet deserves to be with their family, and we are committed to making the process of finding lost pets as stress-free and effective as possible.</p>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag "Mission.jpg", class: "img-fluid rounded shadow", alt: "Mission Image Placeholder" %>
+    </div>
+  </div>
+
+  <!-- Vision Section -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 order-md-2">
+      <h2 class="mb-3">Our Vision</h2>
+      <p class="text-muted">Our vision is to create a world where no pet is left lost for too long. By connecting people who have found lost pets with those searching for them, we aim to foster a supportive, global community of pet lovers. We envision FurFound becoming a trusted resource for all things related to pet recovery.</p>
+    </div>
+    <div class="col-md-6 order-md-1">
+      <%= image_tag "Vision.jpg", class: "img-fluid rounded shadow", alt: "Vision Image Placeholder" %>
+    </div>
+  </div>
+
+  <!-- Community-Driven Section -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6">
+      <h2 class="mb-3">Community-Driven</h2>
+      <p class="text-muted">FurFound is built on the power of community. Every post, every search, and every effort to reunite a pet with its owner helps make a difference. We believe that when people come together with a common goal, amazing things can happen. By providing tools for pet owners and finders to communicate, our community can work together to bring pets back home.</p>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag "community_driven.jpg", class: "img-fluid rounded shadow", alt: "Community Image Placeholder" %>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="row text-center mt-5">
+    <div class="col">
+      <h2 class="mb-4">Join Us in Reuniting Pets with Their Families</h2>
+      <p class="lead text-muted">Whether you've lost a pet, found one, or simply want to help, FurFound is here for you. Together, we can make a difference in the lives of pets and their owners. Become a part of our community today!</p>
+      <%= link_to "Get Started", new_user_registration_path, class: "btn btn-primary btn-lg mt-3" %>
+    </div>
+  </div>
+</div>

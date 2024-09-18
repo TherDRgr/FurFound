@@ -17,12 +17,7 @@ Rails.application.routes.draw do
     post 'report_missing', on: :member
   end
 
-  # Google OmniAuth Config
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'users/omniauth_callbacks'
-  }
-
-  get 'users/auth/google_oauth2', to: 'users/omniauth_callbacks#passthru'
+  devise_for :users
 
   resources :posts
   root 'pages#home'
@@ -33,6 +28,7 @@ Rails.application.routes.draw do
 
   # Updated route for profile
   get 'profile', to: 'profiles#show'
+  get 'about', to: 'pages#about'
 
   resource :profile, only: [:show, :edit, :update]
 
