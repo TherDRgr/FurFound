@@ -1,24 +1,121 @@
-# README
+# FurFound - A Platform to Reunite Lost Pets with Their Owners
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+FurFound is a web application designed to help reunite lost pets with their owners. Users can create accounts, post information about lost or found pets, and browse pet posts. Admins can oversee all users and manage posts. The application also provides features for adding pets to user profiles and reporting missing pets with an easy-to-use interface.
 
-Things you may want to cover:
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Usage](#usage)
+  - [User Roles](#user-roles)
+  - [Pets Database](#pets-database)
+  - [Posts](#posts)
+  - [User Profile](#user-profile)
+  - [Search Functionality](#search-functionality)
+  - [QR Code Integration](#qr-code-integration)
+- [Deployment](#deployment)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [License](#license)
 
-* Ruby version
+---
 
-* System dependencies
+## Features
+- **User Authentication with Devise**: Allows users to sign up, log in, and manage their accounts.
+- **Admin Approval System**: Admins can approve user accounts before they become active.
+- **Posts for Lost and Found Pets**: Users can create posts about lost and found pets, including details like name, breed, last seen, photo, and species.
+- **Profile Page with Pets Section**: Users can add their pets to their profile, and if their pet goes missing, they can report it easily.
+- **QR Code Integration**: Allows scanning to view specific pet information.
+- **Report Notification Mailer**: Users will receive notifications from their email from their reported missing pets.
 
-* Configuration
 
-* Database creation
+---
 
-* Database initialization
+## Installation
 
-* How to run the test suite
+### Prerequisites
+Ensure you have the following installed on your system:
+- [Ruby 3.0+](https://www.ruby-lang.org/en/downloads/)
+- [Rails 7+](https://rubyonrails.org/)
+- [PostgreSQL](https://www.postgresql.org/) or [SQLite](https://www.sqlite.org/index.html) (development only)
+- [Node.js](https://nodejs.org/en/download/)
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
+- [ImageMagick](https://imagemagick.org/script/download.php) (for image processing)
+- Git
 
-* Services (job queues, cache servers, search engines, etc.)
+### Setup Instructions
 
-* Deployment instructions
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/yourusername/furfound.git
+   cd furfound
 
-* ...
+2. **Install dependencies:** First, ensure that all gems and npm packages are installed.
+   ```bash
+   bundle install
+   yarn install
+
+3. **Database setup:** Set up your database by running the following commands:
+   ```bash
+   rails db:create
+   rails db:migrate
+
+4. **Set up ImageMagick for image processing:** Make sure ImageMagick is installed and configured. If you're using CarrierWave with MiniMagick, ensure it’s working with:
+   ```bash
+   sudo apt-get install imagemagick
+
+5. **Run Rails Server**
+   ```bash
+   rails server / rails s
+
+## Running the Application
+
+Open your browser and navigate to http://localhost:3000.
+You can sign up as a regular user or log in as an admin if you've already created an account.
+Explore the features such as adding pets, reporting missing pets, and posting lost or found pet notices.
+
+## Usage
+### User Roles
+Regular Users: Default role. Users can add pets, report missing pets, and view posts. They must be approved by an admin before fully accessing the system.
+Admins: Can manage users and approve accounts, delete or edit any post, and have additional access to features such as user searches.
+Pets Database
+Users can add pets to their profile, which includes fields such as:
+
+- Name
+- Breed
+- Color
+- Species
+- Photo
+- QR Code
+From the pet profile, users can click a Report Missing button, which automatically generates a post for the lost pet in the system.
+
+### Posts
+The post system allows users to add details about their lost or found pets. Admins have full control over all posts, while regular users can only edit or delete their own.
+
+### User Profile
+Each user has a profile that displays their information:
+
+- Profile Picture
+- Phone Number
+- Home Address
+- 16-digit Account Number (First four digits represent month and year)
+
+## QR Code Integration
+When pets are reported missing, a QR code is generated that can be scanned to display the pet’s information on the show page. This allows quick access to the pet's details.
+
+
+##Tech Stack
+
+Frontend: HTML, CSS, Bootstrap, JavaScript, jQuery
+Backend: Ruby on Rails, Devise (for authentication), Pundit (for authorization)
+Database: PostgreSQL (production), SQLite (development)
+Image Processing: CarrierWave with MiniMagick
+Mailer: ActionMailer for sending approval and notification emails
+Third-Party Services: Google OAuth for sign-up, Fly.io for deployment
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Thank you for using FurFound! We hope this platform helps reunite pets with their owners.
+
+This `README.md` covers all aspects of FurFound, including features, installation steps, usage, deployment, and more. Let me know if you need to add anything specific!
