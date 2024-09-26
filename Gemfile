@@ -72,12 +72,14 @@ gem 'devise', '~> 4.9', '>= 4.9.2'
 
 #Photo Uploader and Modifier
 gem 'carrierwave', '~> 2.2'
+
 gem 'mini_magick'
-gem 'webpacker'
 
 #Google Authentication
 gem 'omniauth'
+
 gem 'omniauth-google-oauth2'
+
 gem "omniauth-rails_csrf_protection"
 
 gem 'dotenv-rails', groups: [:development, :test]
@@ -87,5 +89,11 @@ gem 'rack-cors'
 gem 'sassc-rails'
 
 gem 'wicked_pdf'
+
 gem 'wkhtmltopdf-binary'
 
+gem 'webpacker', "~> 5.4.4"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "pg", "~> 1.5"
