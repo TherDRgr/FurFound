@@ -85,3 +85,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'rack-cors'
 
 gem 'sassc-rails'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .poster-container {
+      width: 100%;
+      padding: 20px;
+      border: 5px solid black;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .poster-title {
+      font-size: 30px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .pet-photo {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .pet-details {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="poster-container">
+    <div class="poster-title">Missing Pet: <%= @post.pet.name %></div>
+    <img src="<%= @post.pet.photo.url %>" class="pet-photo" alt="Photo of <%= @post.pet.name %>">
+    <div class="pet-details">
+      <p><strong>Breed:</strong> <%= @post.pet.breed %></p>
+      <p><strong>Color:</strong> <%= @post.pet.color %></p>
+      <p><strong>Last Seen:</strong> <%= @post.last_seen %></p>
+      <p><strong>Contact:</strong> <%= current_user.phone_number %></p>
+    </div>
+  </div>
+</body>
+</html>
