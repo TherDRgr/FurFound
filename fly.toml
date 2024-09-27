@@ -7,6 +7,9 @@ app = 'furfound'
 primary_region = 'sin'
 console_command = '/rails/bin/rails console'
 
+[env]
+  RAILS_ENV = "production"
+
 [build]
 
 [deploy]
