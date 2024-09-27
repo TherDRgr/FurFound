@@ -21,5 +21,11 @@ test:
   database: storage/test.sqlite3
 
 production:
-  <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: furfound-db
+  pool: 5
+  username: postgres
+  password: D2018300020
+  host: postgresql://furfound-db.flycast # Optional, usually localhost or the database service URL
+
