@@ -113,7 +113,7 @@ Each user has a profile that displays their information:
 When pets are reported missing, a QR code is generated that can be scanned to display the pet’s information on the show page. This allows quick access to the pet's details.
 
 
-##Tech Stack
+## Tech Stack
 
 Frontend: HTML, CSS, Bootstrap, JavaScript, jQuery
 Backend: Ruby on Rails, Devise (for authentication), Pundit (for authorization)
@@ -121,6 +121,16 @@ Database: PostgreSQL (production), SQLite (development)
 Image Processing: CarrierWave with MiniMagick
 Mailer: ActionMailer for sending approval and notification emails
 Third-Party Services: Google OAuth for sign-up, Fly.io for deployment
+
+## Sample Photos
+
+![Image Description] https://drive.google.com/uc?export=view&id=1GsA7PRd2SSWhrygUdRURMjtB5QUJUqMs
+![Image Description] https://drive.google.com/uc?export=view&id=1Mk6tYyZTmzgJB7imjzWJWFDnKv3qmeoW
+![Image Description] https://drive.google.com/uc?export=view&id=114gdIJ-KLxR4VWg3_ZOkvcW5GwquZWpC
+![Image Description] https://drive.google.com/uc?export=view&id=18aKK8Y1HqtKV06fxFibZoMpUnqbnX6pq
+![Image Description] https://drive.google.com/uc?export=view&id=1QkOAZBwfYWQ3WekWVLYAcu9cKA6oOo2N
+![Image Description] https://drive.google.com/uc?export=view&id=103KivLSo63h3Xq0sixWbrxMjEdtw6shb
+![Image Description] https://drive.google.com/uc?export=view&id=1nPgKNOOEhi97J2HIIGHAdmxqEvMuBHZz
 
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
