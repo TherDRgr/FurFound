@@ -124,14 +124,6 @@ Third-Party Services: Google OAuth for sign-up, Fly.io for deployment
 
 ## Sample Photos
 
-![Image Description] https://drive.google.com/uc?export=view&id=1GsA7PRd2SSWhrygUdRURMjtB5QUJUqMs
-![Image Description] https://drive.google.com/uc?export=view&id=1Mk6tYyZTmzgJB7imjzWJWFDnKv3qmeoW
-![Image Description] https://drive.google.com/uc?export=view&id=114gdIJ-KLxR4VWg3_ZOkvcW5GwquZWpC
-![Image Description] https://drive.google.com/uc?export=view&id=18aKK8Y1HqtKV06fxFibZoMpUnqbnX6pq
-![Image Description] https://drive.google.com/uc?export=view&id=1QkOAZBwfYWQ3WekWVLYAcu9cKA6oOo2N
-![Image Description] https://drive.google.com/uc?export=view&id=103KivLSo63h3Xq0sixWbrxMjEdtw6shb
-![Image Description] https://drive.google.com/uc?export=view&id=1nPgKNOOEhi97J2HIIGHAdmxqEvMuBHZz
-
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
