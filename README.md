@@ -124,6 +124,14 @@ Third-Party Services: Google OAuth for sign-up, Fly.io for deployment
 
 ## Sample Photos
 
+![Home](https://github.com/user-attachments/assets/12e91de7-e142-42fe-9e64-3d92c6592276)
+![UserProfile](https://github.com/user-attachments/assets/9eefa83b-8329-43f5-87a7-0b95d575d513)
+![PetProfile](https://github.com/user-attachments/assets/cd0403b1-a59a-453c-a03d-00f270d83979)
+![LostPets](https://github.com/user-attachments/assets/90843223-94ac-4f47-969c-bd213c636c0b)
+![MissingPet](https://github.com/user-attachments/assets/1f4b034b-842b-418f-a772-13cb25ed7324)
+![PetsOverview](https://github.com/user-attachments/assets/bd3af581-ab1d-4ddb-bcdd-6faac5bdb026)
+![MissingPetInfo](https://github.com/user-attachments/assets/cefe0bf6-5952-43c8-8fd2-28255432160f)
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
